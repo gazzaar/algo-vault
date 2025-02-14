@@ -9,7 +9,7 @@ class HashMap {
     const PRIMENUMBER = 31;
 
     for (let i = 0; i < key.length; i++) {
-      hashCode += PRIMENUMBER * hashCode + key.charCodeAt(i);
+      hashCode = (PRIMENUMBER * hashCode + key.charCodeAt(i)) % this.capacity;
     }
     return hashCode;
   }
