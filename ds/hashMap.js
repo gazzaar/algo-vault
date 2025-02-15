@@ -28,7 +28,7 @@ class HashMap {
     let index = this._hash(key);
 
     if (!this.bucket[index]) {
-      return `No data`;
+      return null;
     } else if (this.bucket[index]) {
       for (let keys of this.bucket[index]) {
         let [k, v] = keys;
