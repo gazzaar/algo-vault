@@ -37,11 +37,10 @@ class HashMap {
       for (let keys of this.bucket[index]) {
         let [k, v] = keys;
         if (key == k) {
-          return { [k]: v };
-        } else {
-          return null;
+          return v;
         }
       }
+      return null;
     }
   }
 }
