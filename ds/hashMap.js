@@ -1,7 +1,7 @@
 class HashMap {
   constructor() {
     this.loadFactor = 0.75;
-    this.capacity = 17;
+    this.capacity = 5;
     this.bucket = Array(this.capacity);
   }
 
@@ -23,9 +23,28 @@ class HashMap {
     }
     this.bucket[index].push([key, value]);
   }
+
+  get(key) {
+    let index = this._hash(key);
+
+    if (!this.bucket[index]) {
+      return `No data`;
+    } else if (this.bucket[index]) {
+      for (let keys of this.bucket[index]) {
+        let [k, v] = keys;
+        if (key == k) {
+          return { [k]: v };
+        }
+      }
+    }
+  }
 }
 
 const ht = new HashMap();
 
 ht.set('manga', 'data');
-console.log(ht.bucket);
+ht.set('ahmed', ['design', 'data', 'web']);
+ht.set('mazen', 'data');
+console.log(ht.get('fathy'));
+console.log(ht.get('manga'));
+console.log(ht.get('ahmed'));
