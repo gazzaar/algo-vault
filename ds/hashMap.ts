@@ -38,6 +38,8 @@ class HashMap {
         let [k, v] = keys;
         if (key == k) {
           return { [k]: v };
+        } else {
+          return null;
         }
       }
     }
@@ -46,7 +48,7 @@ class HashMap {
 
 const ht: HashMap = new HashMap();
 
-ht.set('manga', 'data');
+// ht.set('manga', 'data');
 ht.set('ahmed', ['design', 'data', 'web']);
 ht.set('mazen', 'data');
 console.log(ht.get('fathy'));
