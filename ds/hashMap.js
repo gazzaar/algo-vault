@@ -1,11 +1,11 @@
 class HashMap {
   constructor() {
     this.loadFactor = 0.75;
-    this.capacity = 16;
+    this.capacity = 17;
     this.bucket = Array(this.capacity);
   }
 
-  hash(key) {
+  _hash(key) {
     let hashCode = 0;
     const PRIMENUMBER = 31;
 
@@ -16,22 +16,16 @@ class HashMap {
   }
 
   set(key, value) {
-    let hashed = this.hash(key);
-    if (this.bucket[hashed] === undefined) {
-      return (this.bucket[hashed] = { [key]: value });
-    } else if (this.bucket[hashed] != undefined && key in this.bucket[hashed]) {
-      return (this.bucket[hashed].key = value);
-    } else {
-      // linked list here
-      return 'doing nothing';
+    let index = this._hash(key);
+
+    if (!this.bucket[index]) {
+      this.bucket[index] = [];
     }
+    this.bucket[index].push([key, value]);
   }
 }
 
-const hashMap = new HashMap();
+const ht = new HashMap();
 
-const hashMap2 = new HashMap();
-
-console.log('First hash:', hashMap.set('manga', 'data'));
-
-console.log('Sedond hash:', hashMap2.set('fathy', 'math'));
+ht.set('manga', 'data');
+console.log(ht.bucket);
