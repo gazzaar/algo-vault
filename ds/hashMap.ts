@@ -9,7 +9,7 @@ class HashMap {
     this.bucket = Array(this.capacity);
   }
 
-  _hash(key: string): number {
+  private hash(key: string): number {
     let hashCode: number = 0;
     const PRIMENUMBER: number = 31;
 
@@ -20,7 +20,7 @@ class HashMap {
   }
 
   set(key: string, value: any) {
-    let index = this._hash(key);
+    let index = this.hash(key);
 
     if (!this.bucket[index]) {
       this.bucket[index] = [];
@@ -29,7 +29,7 @@ class HashMap {
   }
 
   get(key: string) {
-    let index = this._hash(key);
+    let index = this.hash(key);
 
     if (!this.bucket[index]) {
       return null;
