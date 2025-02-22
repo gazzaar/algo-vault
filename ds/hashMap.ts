@@ -43,13 +43,31 @@ class HashMap {
       return null;
     }
   }
+
+  keys() {
+    let keysArr: string[] = [];
+    for (let keys of this.bucket) {
+      if (keys) {
+        for (let i = 0; i < keys.length; i++) {
+          if (!keysArr.includes(keys[i][0])) {
+            keysArr.push(keys[i][0]);
+          }
+        }
+      }
+    }
+    return keysArr;
+  }
 }
 
 const ht: HashMap = new HashMap();
 
-// ht.set('manga', 'data');
+ht.set('manga', 'data');
 ht.set('ahmed', ['design', 'data', 'web']);
-ht.set('mazen', 'data');
-console.log(ht.get('fathy'));
-console.log(ht.get('manga'));
-console.log(ht.get('ahmed'));
+ht.set('mazen', 'design');
+ht.set('fathy', 'CS');
+// BUG: ht.set('mazen', 'mobile');
+//
+// console.log(ht.get('fathy'));
+// console.log(ht.get('manga'));
+// console.log(ht.get('ahmed'));
+// console.log(ht.bucket);
