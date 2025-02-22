@@ -57,6 +57,20 @@ class HashMap {
     }
     return keysArr;
   }
+
+  values() {
+    let valuesArr: string[] = [];
+    for (let keys of this.bucket) {
+      if (keys) {
+        for (let i = 0; i < keys.length; i++) {
+          if (!valuesArr.includes(keys[i][1])) {
+            valuesArr.push(keys[i][1]);
+          }
+        }
+      }
+    }
+    return valuesArr;
+  }
 }
 
 const ht: HashMap = new HashMap();
