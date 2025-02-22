@@ -75,13 +75,4 @@ class HashMap {
 
 const ht: HashMap = new HashMap();
 
-ht.set('manga', 'data');
-ht.set('ahmed', ['design', 'data', 'web']);
-ht.set('mazen', 'design');
-ht.set('fathy', 'CS');
-// BUG: ht.set('mazen', 'mobile');
-//
-// console.log(ht.get('fathy'));
-// console.log(ht.get('manga'));
-// console.log(ht.get('ahmed'));
-// console.log(ht.bucket);
+// BUG: Modify the value at specific index;
