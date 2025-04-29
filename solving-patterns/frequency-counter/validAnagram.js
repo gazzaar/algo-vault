@@ -7,7 +7,7 @@ function validAnagram(word1, word2) {
   setCounter(frequenciyCounter2, word2);
 
   for (let key in frequenciyCounter1) {
-    if (!(key !== frequenciyCounter2)) return false;
+    if (!(key in frequenciyCounter2)) return false;
 
     if (frequenciyCounter2[key] !== frequenciyCounter1[key]) return false;
   }
